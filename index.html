@@ -42,10 +42,22 @@
         mainRegion: "#main-region"
       });
 
-      ContactManager.Contact = Backbone.Model.extend({});
+      ContactManager.Contact = Backbone.Model.extend({
+        defaults: {
+          firstName: ""
+        }
+      });
 
       ContactManager.ContactView = Marionette.ItemView.extend({
-        template: "#contact-template"
+        template: "#contact-template",
+
+        events: {
+          "click p": "alertPhoneNumber"
+        },
+
+        alertPhoneNumber: function(){
+          alert(this.model.escape("phoneNumber"))
+        }
       })
 
       ContactManager.on("start", function(){
