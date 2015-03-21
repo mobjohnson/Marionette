@@ -42,13 +42,6 @@
     <script type="text/javascript">
 
 
-      ContactManager.Contact = Backbone.Model.extend({});
-
-      ContactManager.ContactCollection = Backbone.Collection.extend({
-        model: ContactManager.Contact,
-        comparator: "firstName"
-      });
-
       ContactManager.ContactItemView = Marionette.ItemView.extend({
         tagName: "li",
         template: "#contact-list-item"
@@ -62,7 +55,7 @@
 
 
       ContactManager.on("start", function(){
-        var contacts = new ContactManager.ContactCollection([
+        var contacts = new ContactManager.Entities.ContactCollection([
           {
             firstName: "Bob",
             lastName: "Brigham",
