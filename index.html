@@ -25,13 +25,21 @@
       <thead>
         <tr><th>First Name</th><
         <th>Last Name</th></tr>
+        <th></th>
       </thead>
       <tbody>
       </tbody>
     </script>
 
     <script type="text/template" id="contact-list-item">
-      <td><%- firstName %></td><td><%- lastName %></td>
+      <td><%- firstName %></td>
+      <td><%- lastName %></td>
+      <td>
+        <button class="btn btn-small">
+          <i class="icon-remove"></i>
+          Delete
+        </button>
+      </td>
     </script>
 
 
