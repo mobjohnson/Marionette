@@ -5,7 +5,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
     events: {
      "click": "hightlightName",
-     "click button": "deleteClicked"
+     "click button.js-delete": "deleteClicked"
     },
 
     hightlightName: function(e){
@@ -14,9 +14,8 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
     deleteClicked: function(e){
       e.stopPropagation();
-      alert("delete button was clicked");
+      this.model.collection.remove(this.model);
     }
-
   });
 
   List.Contacts = Marionette.CompositeView.extend({
