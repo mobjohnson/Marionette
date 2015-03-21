@@ -22,7 +22,7 @@
     </div>
 
   <script type="text/template" id="contact-list-item">
-    <p><%- firstName %> <%- lastName %></p>
+    <%- firstName %> <%- lastName %>
   </script>
 
 
@@ -45,10 +45,12 @@
       ContactManager.Contact = Backbone.Model.extend({});
 
       ContactManager.ContactCollection = Backbone.Collection.extend({
-        model: ContactManager.Contact
+        model: ContactManager.Contact,
+        comparator: "firstName"
       });
 
       ContactManager.ContactItemView = Marionette.ItemView.extend({
+        tagName: "li",
         template: "#contact-list-item"
       })      
 
