@@ -7,7 +7,7 @@ ContactManager.module("ContactsApp", function(ContactsApp, ContactManager, Backb
 
   var API = {
     listContacts: function(){
-      console.log("route to list contacts was triggered");
+      ContactsApp.List.Controller.listContacts();
     }
   };
 
