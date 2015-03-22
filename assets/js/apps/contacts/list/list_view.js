@@ -31,5 +31,8 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
     template: "#contact-list",
     childView: List.Contact,
     childViewContainer: 'tbody'
+
   });
+
+
 });
