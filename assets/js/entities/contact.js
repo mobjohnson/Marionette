@@ -2,6 +2,7 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
   Entities.Contact = Backbone.Model.extend({});
 
   Entities.ContactCollection = Backbone.Collection.extend({
+    url: "contacts",
     model: Entities.Contact,
     comparator: "firstName"
   });
