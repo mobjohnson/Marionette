@@ -33,7 +33,7 @@ ContactManager.module("ContactsApp", function(ContactsApp, ContactManager, Backb
 
    ContactManager.on("contacts:edit", function(id){
     ContactManager.navigate("contacts/" + id + "/edit");
-    API.eidtContact(id);
+    API.editContact(id);
   }); 
 
   ContactManager.addInitializer(function(){
