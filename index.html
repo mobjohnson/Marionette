@@ -55,6 +55,12 @@
       <div class="alert alert-error">This contact does not exist!</div>
     </script>
 
+    <script type="text/template" id="loading-view">
+      <h1>Artificial Loading Delay</h1>
+      <p>Data loading</p>
+      <div id="spinner"></div>
+    </script>
+
     <script type="text/template" id="contact-form">
       <h1>Edit <%- firstName %> <%- lastName %></h1>
       <form>
@@ -86,16 +92,21 @@
     <script src="./assets/js/vendor/backbone.js"></script>
     <script src="./assets/js/vendor/backbone.localstorage.js"></script>
     <script src="./assets/js/vendor/backbone.marionette.js"></script>
+    <script src="./assets/js/vendor/spin.js"></script>
+    <script src="./assets/js/vendor/spin.jquery.js"></script>
 
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/apps/config/storage/localstorage.js"></script>
     <script src="./assets/js/entities/contact.js"></script>
+    <script src="./assets/js/common/views.js"></script>
 
     <script src="./assets/js/apps/contacts/contacts_app.js"></script>
     <script src="./assets/js/apps/contacts/list/list_view.js"></script>
     <script src="./assets/js/apps/contacts/list/list_controller.js"></script>
     <script src="./assets/js/apps/contacts/show/show_view.js"></script>
     <script src="./assets/js/apps/contacts/show/show_controller.js"></script>
+    <script src="./assets/js/apps/contacts/edit/edit_view.js"></script>
+    <script src="./assets/js/apps/contacts/edit/edit_controller.js"></script>
 
     <script type="text/javascript">
       ContactManager.start();
