@@ -10,7 +10,11 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
       
         contactsListView.on("childview:contact:show", function(childView, model){
           ContactManager.trigger("contact:show", model.get("id"));
-        });      
+        });
+
+       contactsListView.on("childview:contact:edit", function(childView, model){
+          console.log("edit link clicked");
+        });
 
         contactsListView.on("childview:contact:delete", function(childView, model){
           model.destroy();
