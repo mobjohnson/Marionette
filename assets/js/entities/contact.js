@@ -39,17 +39,26 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
     contacts.forEach(function(contact){
       contact.save();
     });
-    return contacts;
+    return contacts.models;
   };
 
   var API = {
     getContactEntities: function(){
       var contacts = new Entities.ContactCollection();
-      contacts.fetch();
-      if(contacts.length === 0){
-        return initializeContacts();
-      }
-      return contacts;
+      var defer = $.Defered();
+      contacts.fetch({
+        success: function(data){
+          defer.resolve(data);
+        }
+      });
+      var promise = defer.promise();
+      $.when(promise).done(function(contacts){
+        if(contacts.length === 0){
+          var models = initializeContacts();
+          contacts.reset(models);
+        }
+      });
+      return promise;
     },
 
     getContactEntity: function(contactId){
