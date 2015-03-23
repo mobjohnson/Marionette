@@ -1,7 +1,7 @@
 ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbone, Marionette, $, _){
   Show.Controller = {
     showContact: function(id){
-      var loadingView = new ContactManager.Common.View.Loading();
+      var loadingView = new ContactManager.Common.Views.Loading();
       ContactManager.mainRegion.show(loadingView);
 
 

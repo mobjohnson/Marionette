@@ -26,12 +26,12 @@ ContactManager.module("ContactsApp", function(ContactsApp, ContactManager, Backb
     API.listContacts();
   });
 
-  ContactManager.on("contacts:show", function(id){
+  ContactManager.on("contact:show", function(id){
     ContactManager.navigate("contacts/" + id);
     API.showContact(id);
   });
 
-   ContactManager.on("contacts:edit", function(id){
+   ContactManager.on("contact:edit", function(id){
     ContactManager.navigate("contacts/" + id + "/edit");
     API.editContact(id);
   }); 
