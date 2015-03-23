@@ -48,6 +48,10 @@
 
     <script type="text/template" id="contact-view">
       <h1><%- firstName %> <%- lastName %></h1>
+      <a href="#contacts/<%- id %>/edit" class="btn btn-small js-edit">
+        <i class="icon-pencil"></i>
+        Edit this contact
+      </a>  
       <p><strong>Phone number:</strong> <%- phoneNumber %></p>
     </script>
 
@@ -90,6 +94,7 @@
     <script src="./assets/js/vendor/json2.js"></script>
     <script src="./assets/js/vendor/underscore.js"></script>
     <script src="./assets/js/vendor/backbone.js"></script>
+    <script src="./assets/js/vendor/backbone.syphon.js"></script>
     <script src="./assets/js/vendor/backbone.localstorage.js"></script>
     <script src="./assets/js/vendor/backbone.marionette.js"></script>
     <script src="./assets/js/vendor/spin.js"></script>
