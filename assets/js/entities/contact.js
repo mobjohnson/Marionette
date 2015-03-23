@@ -45,7 +45,7 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
   var API = {
     getContactEntities: function(){
       var contacts = new Entities.ContactCollection();
-      var defer = $.Defered();
+      var defer = $.Deferred();
       contacts.fetch({
         success: function(data){
           defer.resolve(data);
