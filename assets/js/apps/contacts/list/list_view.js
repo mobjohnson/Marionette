@@ -20,11 +20,14 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
     tagName: "tr",
     template: "#contact-list-item",
 
+    triggers: {
+     "click td a.js-show": "contact:show",
+     "click td a.js-edit": "contact:edit",
+     "click button.js-delete": "contact:delete"
+    },
+
     events: {
-     "click": "hightlightName",
-     "click td a.js-show": "showClicked",
-     "click td a.js-edit": "editClicked",
-     "click button.js-delete": "deleteClicked"
+      "click": "hightlightName",
     },
 
     flash: function(cssClass){
@@ -38,23 +41,6 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
     hightlightName: function(e){
       this.$el.toggleClass("warning");
-    },
-
-    showClicked: function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      this.trigger("contact:show", this.model);
-    },
-
-    editClicked: function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      this.trigger("contact:edit", this.model);
-    },
-
-    deleteClicked: function(e){
-      e.stopPropagation();
-      this.trigger("contact:delete", this.model);
     },
 
     remove: function(){
