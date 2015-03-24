@@ -13,7 +13,23 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
         });
 
        contactsListView.on("childview:contact:edit", function(childView, model){
-          console.log("edit link clicked");
+          var view = new ContactManager.ContactsApp.Edit.Contact({
+            model: model,
+            asModal: true
+          });
+
+          view.on("form-submit", function(data){
+            if(model.save(data)){
+              childView.render();
+              ContactManager.dialogRegion.empty();
+              childView.flash("success");
+            }
+            else{
+              view.triggermethod("form:data:invalid", model.validationError);
+            }
+          })
+
+          ContactManager.dialogRegion.show(view);
         });
 
         contactsListView.on("childview:contact:delete", function(childView, model){
