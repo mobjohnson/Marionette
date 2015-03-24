@@ -14,6 +14,10 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
           collection: contacts
         });
 
+        contactsListPanel.on("contacts:filter", function(filterCriterion){
+          console.log("filter list with criterion", filterCriterion);
+        });
+
         contactsListLayout.on("show", function(){
           contactsListLayout.panelRegion.show(contactsListPanel);
           contactsListLayout.contactsRegion.show(contactsListView);
