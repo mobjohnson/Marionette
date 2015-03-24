@@ -21,13 +21,13 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
     template: "#contact-list-item",
 
     triggers: {
-     "click td a.js-show": "contact:show",
-     "click td a.js-edit": "contact:edit",
-     "click button.js-delete": "contact:delete"
+      "click td a.js-show": "contact:show",
+      "click td a.js-edit": "contact:edit",
+      "click button.js-delete": "contact:delete"
     },
 
     events: {
-      "click": "hightlightName",
+      "click": "highlightName"
     },
 
     flash: function(cssClass){
@@ -39,7 +39,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
       });
     },
 
-    hightlightName: function(e){
+    highlightName: function(e){
       this.$el.toggleClass("warning");
     },
 
@@ -53,10 +53,10 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
   List.Contacts = Marionette.CompositeView.extend({
     tagName: "table",
-    className: "table table:hover",
+    className: "table table-hover",
     template: "#contact-list",
     childView: List.Contact,
-    childViewContainer: 'tbody',
+    childViewContainer: "tbody",
 
     initialize: function(){
       this.listenTo(this.collection, "reset", function(){

@@ -23,7 +23,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
           var newContact = new ContactManager.Entities.Contact();
 
           var view = new ContactManager.ContactsApp.New.Contact({
-            model: newContact,
+            model: newContact
           });
 
           view.on("form:submit", function(data){
@@ -40,32 +40,33 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
               contactsListView.children.findByModel(newContact).flash("success");
             }
             else{
-              view.triggermethod("form:data:invalid", newContact.validationError);
+              view.triggerMethod("form:data:invalid", newContact.validationError);
             }
           });
 
           ContactManager.dialogRegion.show(view);
         });
-      
+
         contactsListView.on("childview:contact:show", function(childView, args){
           ContactManager.trigger("contact:show", args.model.get("id"));
         });
 
-        contactsListView.on("childview:contact:edit", function(childView, model){
+        contactsListView.on("childview:contact:edit", function(childView, args){
+          var model = args.model;
           var view = new ContactManager.ContactsApp.Edit.Contact({
-            model: model,
+            model: model
           });
 
-          view.on("form-submit", function(data){
+          view.on("form:submit", function(data){
             if(model.save(data)){
               childView.render();
               view.trigger("dialog:close");
               childView.flash("success");
             }
             else{
-              view.triggermethod("form:data:invalid", model.validationError);
+              view.triggerMethod("form:data:invalid", model.validationError);
             }
-          })
+          });
 
           ContactManager.dialogRegion.show(view);
         });
@@ -74,10 +75,8 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
           args.model.destroy();
         });
 
-
-        ContactManager.mainRegion.show(contactsListLayout)
+        ContactManager.mainRegion.show(contactsListLayout);
       });
     }
   }
 });
-

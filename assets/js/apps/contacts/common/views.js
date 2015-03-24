@@ -3,7 +3,7 @@ ContactManager.module("ContactsApp.Common.Views", function(Views, ContactManager
     template: "#contact-form",
 
     events: {
-      "click button,js-submit": "submitClicked"
+      "click button.js-submit": "submitClicked"
     },
 
     submitClicked: function(e){
@@ -20,7 +20,7 @@ ContactManager.module("ContactsApp.Common.Views", function(Views, ContactManager
         $form.find(".help-inline.error").each(function(){
           $(this).remove();
         });
-        $form.find(".control-group-error").each(function(){
+        $form.find(".control-group.error").each(function(){
           $(this).removeClass("error");
         });
       }
@@ -34,6 +34,5 @@ ContactManager.module("ContactsApp.Common.Views", function(Views, ContactManager
       clearFormErrors();
       _.each(errors, markErrors);
     }
-
-  })
+  });
 });

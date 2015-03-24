@@ -8,8 +8,7 @@ Marionette.Region.Dialog = Marionette.Region.extend({
       title: view.title,
       width: "auto",
       close: function(e, ui){
-        self.claseDialog();
-
+        self.closeDialog();
       }
     });
   },

@@ -3,7 +3,7 @@ ContactManager.module("ContactsApp.Edit", function(Edit, ContactManager, Backbon
     editContact: function(id){
       var loadingView = new ContactManager.Common.Views.Loading({
         title: "Artificial Loading Delay",
-        message: "data loading is delayed to demonstrate using a loading view"
+        message: "Data loading is delayed to demonstrate using a loading view."
       });
       ContactManager.mainRegion.show(loadingView);
 
@@ -13,16 +13,16 @@ ContactManager.module("ContactsApp.Edit", function(Edit, ContactManager, Backbon
         if(contact !== undefined){
           view = new Edit.Contact({
             model: contact,
-            gereateTitle: true
+            generateTitle: true
           });
 
           view.on("form:submit", function(data){
             if(contact.save(data)){
-              ContactManager.trigger("contact:show", contact.get("id"));              
+              ContactManager.trigger("contact:show", contact.get("id"));
             }
             else{
               view.triggerMethod("form:data:invalid", contact.validationError);
-            } 
+            }
           });
         }
         else{

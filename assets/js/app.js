@@ -2,12 +2,12 @@ var ContactManager = new Marionette.Application();
 
 ContactManager.addRegions({
   mainRegion: "#main-region",
-  dialogRegion: Marionette.Region.extend({
+  dialogRegion: Marionette.Region.Dialog.extend({
     el: "#dialog-region"
   })
 });
 
-ContactManager.navigate = function(route, options){
+ContactManager.navigate = function(route,  options){
   options || (options = {});
   Backbone.history.navigate(route, options);
 };
