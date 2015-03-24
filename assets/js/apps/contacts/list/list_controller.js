@@ -24,7 +24,6 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
           var view = new ContactManager.ContactsApp.New.Contact({
             model: newContact,
-            asModal: true
           });
 
           view.on("form:submit", function(data){
@@ -37,7 +36,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
             }
             if(newContact.save(data)){
               contacts.add(newContact);
-              ContactManager.dialogRegion.empty();
+              view.trigger("dialog:close");
               contactsListView.children.findByModel(newContact).flash("success");
             }
             else{
@@ -52,17 +51,15 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
           ContactManager.trigger("contact:show", args.model.get("id"));
         });
 
-        contactsListView.on("childview:contact:edit", function(childView, args){
-          var model = args.model;
+        contactsListView.on("childview:contact:edit", function(childView, model){
           var view = new ContactManager.ContactsApp.Edit.Contact({
             model: model,
-            asModal: true
           });
 
           view.on("form-submit", function(data){
             if(model.save(data)){
               childView.render();
-              ContactManager.dialogRegion.empty();
+              view.trigger("dialog:close");
               childView.flash("success");
             }
             else{
