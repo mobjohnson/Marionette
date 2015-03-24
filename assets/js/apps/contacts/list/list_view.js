@@ -53,7 +53,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
       this.$el.toggleClass("warning");
     },
 
-    remove: function(){
+    remove: function(){;
       var self = this;
       this.$el.fadeOut(function(){
         Marionette.ItemView.prototype.remove.call(self);
@@ -61,10 +61,17 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
     }
   });
 
+  var NoContactsView = Marionette.ItemView.extend({
+    template: "#contact-list-none",
+    tagName: "tr",
+    className: "alert"
+  })
+
   List.Contacts = Marionette.CompositeView.extend({
     tagName: "table",
     className: "table table-hover",
     template: "#contact-list",
+    emptyView: NoContactsView,
     childView: List.Contact,
     childViewContainer: "tbody",
 
