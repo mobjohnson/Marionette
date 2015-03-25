@@ -33,5 +33,5 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
 
   ContactManager.reqres.setHandler("header:entities", function(){
     return API.getHeaders();
-  })
+  });
 });
