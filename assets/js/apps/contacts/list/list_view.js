@@ -15,6 +15,10 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
       "click button.js-new": "contact:new"
     },
 
+    ui: {
+      crtierion: "input.js-filter-criterion"
+    },
+
     events: {
       "submit #filter-form": "filterContacts"
     },
@@ -23,6 +27,10 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
       e.preventDefault();
       var criterion = this.$(".js-filter-criterion").val();
       this.trigger("contacts:filter", criterion);
+    },
+
+    onSetFilterCriterion: function(criterion){
+      this.ui.criterion.val(criterion);
     }
   });
 
